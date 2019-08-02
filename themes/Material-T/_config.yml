@@ -9,7 +9,44 @@
 # Site
 #---------------------------
 favicon: /favicon.ico
+title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
+highlight:
+  enable: true
+  theme: tomorrow-night-eighties  # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties , you can download more from https://jmblog.github.io/color-themes-for-google-code-prettify/ then save `*.min.css` in `source/lib/prettify`
+fun_features:
+  typing: # 为 subtitle 添加打字机效果
+    enable: true
+    typeSpeed: 70 # 打印速度
+    cursorChar: "" # 游标字符
+    loop: false # 是否循环播放效果
+  anchorjs: # 为文章内容中的标题添加锚图标
+    enable: true
+    element: h1,h2,h3,h4,h5,h6
+    placement: right # icon放置的位置： left | right
+    visible: false # true：一直可见，false：鼠标悬停时出现
+    icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
 
+
+#---------------------------
+# 导航栏
+# Head Navbar
+#---------------------------
+navbar:
+  menu:
+    # Home: /
+    # Archives: /archives/
+    # About: /about/
+
+#---------------------------
+# 页脚
+# Footer
+#---------------------------
+footer:
+  beian:  # The footer of China's website policy, other areas keep disable
+    enable: false
+    icp_text:  # ICP证号
+    police_text:  # 公安备案号，不填则只显示ICP
+    police_code:  # 公安备案的编号，用于URL跳转查询
 
 #---------------------------
 # 首页
@@ -29,17 +66,6 @@ index:
 
 
 #---------------------------
-# 导航栏
-# Head Navbar
-#---------------------------
-navbar:
-  menu:
-    # Home: /
-    # Archives: /archives/
-    # About: /about/
-
-
-#---------------------------
 # 文章页
 # Post Page
 #---------------------------
@@ -52,11 +78,16 @@ post:
     enable: true
     theme: tomorrow-night-eighties # available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
   copyright:
-    enable: true
+    enable: false
     content: 日常笔记记录
   comments: 
     enable: false
     type: disqus  # available: disqus | valine
+  date_format: "dddd, MMMM Do YYYY, h:mm a"
+  custom:
+    enable: false
+    content: '<img src="" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
+
 
 # Disqus
 disqus:
