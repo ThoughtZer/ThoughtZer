@@ -2,7 +2,7 @@
 title: wavesurfer 处理大音频文件波形渲染(一)
 index_img: /img/wavesurfer/wavesurfer.jpg
 tags: JavaScript三方库
-date: 2019-07-29
+date: 2019-07-27 21:15:12
 ---
 
 wavesurfer 是一个利用Web Audio API和Canvas进行交互式导航音频可视化三方库。

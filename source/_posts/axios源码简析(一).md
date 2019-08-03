@@ -2,7 +2,7 @@
 title: axios 源码简析(一)
 index_img: /img/axios/axios.png
 tags: JavaScript三方库
-date: 2019-08-02
+date: 2019-08-04 19:12:21
 ---
 
 Promise based HTTP client for the browser and node.js —— 基于 Promise 的 HTTP 库，可以用在浏览器和 NodeJs 中

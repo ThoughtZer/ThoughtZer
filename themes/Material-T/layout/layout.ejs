@@ -8,7 +8,9 @@
 <% } else if(is_home()) { %>
 <%    banner_img = theme.index.banner_img %>
 <%    banner_img_height = theme.index.banner_img_height %>
-<%    if(theme.index.subtitle.enable) { subtitle = config.subtitle } %>
+      <% if(theme.index.slogan.enable) {
+          subtitle = theme.index.slogan.text || config.subtitle || ''
+      } %>
 <% } else if (page.layout == 'about') { %>
 <%    banner_img = theme.about.banner_img || theme.index.banner_img %>
 <%    banner_img_height = theme.about.banner_img_height %>
@@ -31,26 +33,26 @@
     <div class="view intro-2" style="background: url('<%- banner_img %>')no-repeat center center;background-size: cover;">
     <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text wow fadeInUp">
-              <span class="h2" id="subtitle">
-                <% if(theme.fun_features.typing.enable == false) { %>
-                  <%- subtitle %>
-                <% } %>
-              </span>
-              <br>
-              <% if(is_post()) { %>
-                <p><%- full_date(page.date, theme.post.date_format) %></p>
+        <div class="container text-center white-text wow fadeInUp">
+            <span class="h2" id="subtitle">
+              <% if(theme.fun_features.typing.enable == false) { %>
+                <%- subtitle %>
               <% } %>
-          </div>
+            </span>
+            <br>
+            <% if(is_post()) { %>
+            <p><%- full_date(page.date, theme.post.date_format) %></p>
+            <% } %>
+        </div>
         </div>
     </div>
     </div>
   </header>
-  
+
   <main>
   <% if(is_post()) { %>
   <%- body %>
-  <% } else { %>  
+  <% } else { %>
   <div class="container">
     <div class="py-5 z-depth-3 main">
       <% if(page.layout == 'about') { %>
