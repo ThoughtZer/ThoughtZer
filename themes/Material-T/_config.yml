@@ -33,9 +33,9 @@ baidu_analytics:  # 百度统计的Key
 #---------------------------
 navbar:
   menu:
-    Home: /
+    首页: /
     # Archives: /archives/
-    # About: /about/
+    关于我: /about/
 
 #---------------------------
 # 页脚
@@ -124,8 +124,10 @@ archive:
 about:
   banner_img: /bg.jpeg
   banner_img_height: 80  # available: 0 - 100
-  avatar: 
+  avatar: /avator.png
   name: ThoughtZer
-  introduce: info / info / info
+  introduce: 一个缓步前行的前端码农~
   icons: 
-    github: https://github.com
+    github: https://github.com/ThoughtZer
+  contaction:
+    email: archer.liming@gmail.com

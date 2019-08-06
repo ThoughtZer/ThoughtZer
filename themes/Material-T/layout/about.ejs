@@ -2,8 +2,11 @@
 <div class="text-center">
   <p class="h3"><%= theme.about.name %></p>
   <p><%= theme.about.introduce %></p>
+  <% for(var i in theme.about.contaction) { %>
+    <p href="<%- theme.about.contaction[i] %>"><%= theme.about.contaction[i] %></p>
+  <% } %>
   <% for(var i in theme.about.icons) { %>
-    <a href="<%- theme.about.icons[i] %>" class="h4"><i class="fab fa-<%- i %>" aria-hidden="true"></i></a>
+    <a href="<%- theme.about.icons[i] %>" target="_blank" class="h4"><i class="fab fa-<%- i %>" aria-hidden="true"></i></a>
     &nbsp;&nbsp;
   <% } %>
 </div>
