@@ -1,6 +1,6 @@
 ---
 title: HTTP 协议
-index_img: /img/webpack/http.png
+index_img: /img/http/http.png
 tags: 计算机网络
 date: 2019-08-18 20:20:30
 ---

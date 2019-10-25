@@ -5,10 +5,10 @@
 # Site
 title: 木メメ木+大
 subtitle:
-description: 记录一些目前所想
+description: 记录一些目前做的
 keywords: 记录
 author: ThoughtZer
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -81,6 +81,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+# theme: fluid
 theme: Material-T
 
 # Deployment
