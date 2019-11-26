@@ -147,26 +147,6 @@ app.prepare().then(() => {
 });
 ```
 
-- redux无法使用模块化，只能通过对象属性方式获取redux内容
-
-在一般的SPA页面中，使用```redux```，在项目模块增多的时候，会使用```combineReducers```组合拆分各个模块的redux数据。然后在组件中使用```react-redux```连接redux，获取数据。
-
-```js
-import { connect } from 'react-redux';
-
-const Components = () => {
-  // 组件
-}
-const mapStateToProps = (state) => {
-  return {
-    reduxProp: state.getIn(['模块名', '需要获取redux的该模块下的某一字段的key']),
-  };
-};
-export default connect(mapStateToProps, null)(Components);
-```
-
-但是在NextJS中，即使我们使用了```combineReducers```组合拆分各个模块的redux数据，我们在组件内部使用```react-redux```连接redux，获取数据的时候，不能通过```state.getIn(['', ''])```的方式获取，因为state没有经过处理，只能通过```state['模块名']['需要获取redux的该模块下的某一字段的key']```的方式获取。
-
 ```js
 const mapStateToProps = (state) => {
   return {
@@ -189,5 +169,21 @@ NextJS提供了一个很强大的生命周期钩子: ```getInitialProps```，会
 2. 在```getInitialProps```中返回随机去的数据到组件的 props 中，然后再渲染
 
 需要注意的是一旦采用了函数式组件的编写模式，方式1是不可取的，因为一旦当前页面被当做首屏，进行服务端渲染，服务端是会执行```getInitialProps```以及组件函数，浏览器渲染的时候不会执行```getInitialProps```，但是同样会执行组件函数，导致前后端数据存在不一致的可能就会发生。因此推荐第二种方式，数据的处理统一放置于```getInitialProps```。
+
+- getInitialProps 钩子发起请求
+
+使用 SSR 的时候，一般希望进入页面就有数据，那么请求数据一定就要在进入页面之前。所以 ```getInitialProps``` 钩子就必不可少，但是需要注意的是 ```getInitialProps``` 的两端执行特性，在服务端执行的时候，如果直接使用接口路由地址，则会出现找不到地址的情况，必须使用完整的接口地址: __域名 / ip + 端口 + 路由__ 的方式，然而客户端请求的时候是不需要这样的，并且一旦客户端使用这样完整接口地址方式，如果后端没有针对跨域进行配置，则会出现跨域请求。因此需要针对此种情况进行兼容处理。
+
+```js
+// pages 文件夹下 页面 Jsx
+Component.getInitialProps = () => {
+  let requestURL = '/api/xxx';
+  if (typeof window === 'undefined') { // 判断是否是服务端渲染
+    requestURL = `http://127.0.0.1:3000${requestURL}`
+  }
+  // 发起请求。当然推荐使用 axios 使用baseURL处理
+  // ...
+}
+```
 
 文章所用NextJS版本为9.1.1~
