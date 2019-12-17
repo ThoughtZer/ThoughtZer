@@ -87,5 +87,7 @@ theme: Material-T
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  - type: git
+    repo: git@github.com:ThoughtZer/ThoughtZer.git # 使用仓库的ssh地址
+    branch: master
 
