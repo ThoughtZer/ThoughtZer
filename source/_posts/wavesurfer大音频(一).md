@@ -8,7 +8,7 @@ date: 2019-07-27 21:15:12
 wavesurfer 是一个利用Web Audio API和Canvas进行交互式导航音频可视化三方库。
 <!-- more -->
 
-#### 背景: 
+#### 背景:
 
 通常用 wavesurfer 来做音轨波形的渲染。笔者目前所做的项目中用到 wavesurfer 来实现了对音频截取段落的分析标注，实现过程中发现大音频（**100M以上wav文件**）的加载和渲染会占用过多的浏览器内存，导致浏览器崩溃。针对此现象，调研过目前能寻找到的解决方案，例如:
 
@@ -105,7 +105,7 @@ class requestWav {
     defaultOptions = {
         responseType: 'arraybuffer',
         rangeFirstSize: 100,
-        rangeSize: 1024000 * 2,
+        rangeSize: 1024000 * 2, // 分片的每一片大小。如果太大可能导致解析顺序不一致，尽可能小于5M
         requestCount: 1, // 请求个数
         loadRangeSucess: null, // 每一段请求之后完成的回调
         loadAllSucess: null, // 全部加载完成之后的回调
